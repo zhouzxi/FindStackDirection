@@ -50,7 +50,7 @@ INT32 main()
 ***********************************************************************/
 void FindStackDirection(void)
 {
-	UINT8  iStackAddr        = 0;        // 用于获取栈地址
+    UINT8  iStackAddr        = 0;        // 用于获取栈地址
     static UINT8 *pStackAddr = NULL;     // 用于存放第一个iStackAddr的地址 
 	
     if (pStackAddr == NULL)              // 第一次进入
@@ -58,20 +58,20 @@ void FindStackDirection(void)
         pStackAddr = &iStackAddr;        // 保存iStackAddr的地址
         FindStackDirection();            // 递归 
     }
-	else                                 // 第二次进入 
+    else                                 // 第二次进入 
     {  
         if (&iStackAddr > pStackAddr)        // 第二次iStackDirection的地址大于第一次iStackDirection, 那么说明栈增长方向是向上的
-		{   
-			printf("Stack grows up!\n");
-	    }
+	{   
+	    printf("Stack grows up!\n");
+	}
         else if (&iStackAddr < pStackAddr)   // 第二次iStackDirection的地址小于第一次iStackDirection, 那么说明栈增长方向是向下的
-		{  
-			printf("Stack grows down!\n");
-		}
-		else
-		{
-		    printf("Bad stack!\n");
-		}
+	{  
+	    printf("Stack grows down!\n");
+	}
+	else
+	{
+	    printf("Bad stack!\n");
+	}
     }
 } 
 
